@@ -1,7 +1,9 @@
 {
   "name": "cdashboard",
   "version": "0.1.0",
+  "description":"Cryptocurrency Dashboard using ReactJs",
   "private": true,
+  "main":"index.js",
   "dependencies": {
     "@testing-library/jest-dom": "^5.16.5",
     "@testing-library/react": "^13.4.0",
@@ -42,6 +44,9 @@
       "react-app/jest"
     ]
   },
+  "keywords":[
+    "heroku"
+  ],
   "browserslist": {
     "production": [
       ">0.2%",
