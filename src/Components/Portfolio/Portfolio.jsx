@@ -76,7 +76,7 @@ const Portfolio = () => {
                     'rgb(159, 226, 191)',
                 ],
 
-                borderWidth: 1,
+                borderWidth: 2,
             },
         ],
     };
@@ -95,8 +95,10 @@ const Portfolio = () => {
 
                 labels: {
                     usePointStyle: true,
+                    color: "rgb(148 163 184)",
                     font: {
                         size: 12,
+                        
                     },
                 },
             },
@@ -120,14 +122,14 @@ const Portfolio = () => {
     return (
         <div className="px-4">
             <div className="flex place-content-between pt-2 xl:pb-2 xl:pt-4">
-                <h1 className="font-bold font-mono text-zinc-700 text-lg xl:text-2xl ">
+                <h1 className="dark:text-gray-50 font-bold font-mono text-zinc-700 text-lg xl:text-2xl ">
                     Portfolio
                 </h1>
                 <h1>
                     <span className="text-sm font-medium text-slate-400 mx-1">
                         Total value :
                     </span>
-                    <span className="font-medium">
+                    <span className="font-medium dark:text-gray-100">
                         {currencyType} {Math.round(sum / 100000000)}
                     </span>
                 </h1>

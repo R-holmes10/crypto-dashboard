@@ -29,7 +29,7 @@ const ChartDropdown = (props) => {
       {/* Menu Button */}
 
         <button
-          className="flex justify-center items-center bg-[#F9FAFB] text-black font-medium px-3 py-[0.395rem] rounded-md border-[1.2px] border-slate-400 shadow-sm shadow-slate-400"
+          className="dark:bg-gray-400 dark:text-gray-50 flex justify-center items-center bg-[#F9FAFB] text-black font-medium px-3 py-[0.395rem] rounded-md border-[1.2px] border-slate-400 shadow-sm shadow-slate-400"
           onClick={handleDropDown}
         >
            <span>Chart type</span>
@@ -39,19 +39,19 @@ const ChartDropdown = (props) => {
       {/* Types of Chart list */}
 
       {isOpen && (
-        <div className="flex flex-col bg-[#F9FAFB] space-y-2 text-[0.95rem] w-40 xl:w-[10.5rem] rounded-md drop-shadow-lg absolute top-32 xs2:top-[5.3rem] lg:top-12">
+        <div className="flex flex-col dark:bg-gray-400 bg-[#F9FAFB] space-y-2 text-[0.95rem] w-40 lg:w-[10.5rem] rounded-md drop-shadow-lg absolute top-32 xs2:top-[5.3rem] xl:top-12">
           <Link to="/">
-            <div className="text-gray-500 font-medium rounded-t-md hover:bg-red-100 hover:text-black py-2 px-3" onClick={handleDropDown}>
+            <div className="text-gray-500 dark:text-gray-50 font-medium rounded-t-md hover:bg-red-100 hover:text-black py-2 px-3" onClick={handleDropDown}>
               Veritcal Bar Chart
             </div>
           </Link>
           <Link to="/line">
-            <div className="text-gray-500 font-medium hover:bg-red-100 hover:text-black py-2 px-3" onClick={handleDropDown}>
+            <div className="text-gray-500 dark:text-gray-50 font-medium hover:bg-red-100 hover:text-black py-2 px-3" onClick={handleDropDown}>
               Line Chart
             </div>
           </Link>
           <Link to="/horizontalBar">
-            <div className="text-gray-500 font-medium rounded-b-md hover:bg-red-100 hover:text-black py-2 px-3" onClick={handleDropDown}>
+            <div className="text-gray-500 dark:text-gray-50 font-medium rounded-b-md hover:bg-red-100 hover:text-black py-2 px-3" onClick={handleDropDown}>
               Horizontal Bar Chart
             </div>
           </Link>

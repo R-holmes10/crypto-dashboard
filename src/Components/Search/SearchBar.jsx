@@ -10,7 +10,7 @@ const dispatch = useDispatch();
 const {filterSearch} = bindActionCreators(actionCreators,dispatch)
     
   return (
-    <div className='flex items-center justify-start px-6 space-x-3 bg-white drop-shadow rounded-md '>
+    <div className='flex items-center justify-start px-6 space-x-3 bg-white dark:bg-gray-700 drop-shadow rounded-md '>
               <img src={searchIcon} alt="sdfd" className="w-4 xs:w-5 opacity-50" />
 
       {/* Search Bar */}
@@ -19,7 +19,7 @@ const {filterSearch} = bindActionCreators(actionCreators,dispatch)
               type="text"
               onChange={filterSearch}
               placeholder="Search by coin"
-              className='w-full h-10 outline-none font-medium text-sm xs2:text-base rounded-md'
+              className='dark:bg-gray-700 dark:text-gray-50 w-full h-10 outline-none font-medium text-sm xs2:text-lg rounded-md'
             />
           </form>
       {/* Search Bar */}

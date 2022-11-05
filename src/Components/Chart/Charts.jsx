@@ -8,7 +8,7 @@ function Charts() {
   // const { chartData1, chartData2 } = props;
 
   return (
-    <div className="flex justify-center items-start">
+    <div className="flex justify-center items-start lg:w-full">
       <div
         className="relative w-[16rem] h-[20rem] 
                         xs:w-[21rem] xs:h-[22rem]
@@ -16,8 +16,9 @@ function Charts() {
                         sm:w-[36rem] sm:h-[22rem]
                         md:w-[42rem] md:h-[22rem]
                         md2:w-[50rem] md2:h-[22rem]
-                        lg:w-[49rem] lg:h-[22rem]
-                        xl:w-[53rem] xl:h-[22rem]"
+                        lg:w-[38rem] lg:h-[22rem]
+                        xl:w-[53rem] xl:h-[22rem]
+                        2xl:w-[58rem] 2xl:h-[22rem]"
       >
         <Routes>
           <Route path="/" element={<VerticalBarChart />} />

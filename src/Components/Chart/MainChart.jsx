@@ -73,14 +73,14 @@ export default function MainChart() {
       <div className="flex justify-center items-center">
         <div className="flex flex-col">
           {/* BUTTONS & DROPDOWNS */}
-          <div className="flex flex-col h-36 xs:h-28 w-[17rem] xs:w-[22rem] xs2:w-[26rem] sm:w-[32rem] sm:self-center md:w-[40rem] lg:flex-row lg:w-[50rem] lg:h-24 lg:items-center xl:w-[52rem]">
+          <div className="flex flex-col h-36 xs:h-28 w-[17rem] xs:w-[22rem] xs2:w-[26rem] sm:w-[32rem] sm:self-center md:w-[40rem] xl:flex-row xl:h-24 xl:items-center xl:justify-end xl:w-[52rem] 2xl:w-[58rem]">
             {/* DaysAgo Buttons */}
-            <div className="w-full md:w-1/2 my-3 px-2 self-center lg:my-0">
+            <div className="w-full md:w-1/2 my-3 px-2 self-center xl:my-0">
               <DaysAgo />
             </div>
 
             {/* Dropdowns */}
-            <div className="flex flex-col xs2:flex-row w-full px-2 xs2:px-0 xs2:justify-center lg:justify-end lg:pr-2">
+            <div className="flex flex-col xs2:flex-row w-full px-2 xs2:px-0 xs2:justify-center xl:justify-end xl:pr-2">
               {/* Cryptocurrency Dropdown */}
               <div className="self-end xs2:mr-2">
                 <CryptocurrencyDropdown
