@@ -5,7 +5,7 @@ import MarketCapEndPoint from "./Coin/MarketCapEndPoint";
 import ExchangeCoins from "./ExchangeCoins/ExchangeCoins";
 import Portfolio from "./Portfolio/Portfolio";
 import SearchBar from "./Search/SearchBar";
-import NavBar from './NavBar/NavBar'
+import NavBar from './Navbar/NavBar'
 import HashLoader from "react-spinners/HashLoader";
 import { useState, useEffect } from "react";
 import { useSelector } from "react-redux";
