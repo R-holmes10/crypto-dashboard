@@ -1,3 +1,4 @@
+// Reducer function for updating/removing 'cryptocurrency' state value
 const updateCrypto = (state = ["bitcoin"], action) => {
   if (action.type === "updateCrypto") {
     console.log(action.payload.list);
@@ -11,3 +12,4 @@ const updateCrypto = (state = ["bitcoin"], action) => {
 };
 
 export default updateCrypto;
+

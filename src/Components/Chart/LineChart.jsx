@@ -23,40 +23,43 @@ ChartJS.register(
 );
 
 function LineChart() {
+  //Set of hooks implemented in Line Chart
   const currencyVal = useSelector((state) => state.currency);
   const daysAgo = useSelector((state) => state.daysAgo);
   const cryptoCurrency = useSelector((state) => state.cryptoCurrency);
   const chartData1 = useSelector((state) => state.chartData1);
   const chartData2 = useSelector((state) => state.chartData2);
+  const darkMode = useSelector((state) => state.darkMode);
 
-  // Chart X-Axis
+  //Render data on X-axis in accordance with the time-interval chosen - days, month, year
   const labels = [];
 
   let dateStyle = {
-    weekday:'short'
+    weekday: "short",
   };
-  if(daysAgo<7){
-    dateStyle={
-      hour:'2-digit',
-      weekday:'short'
-    }
-  }else if(daysAgo>7){
+  if (daysAgo < 7) {
     dateStyle = {
-      month: 'short'
-    }
+      hour: "2-digit",
+      weekday: "short",
+    };
+  } else if (daysAgo > 7) {
+    dateStyle = {
+      month: "short",
+    };
   }
- 
+
+  //Formatting date into a string
   chartData1.forEach((element) => {
     let date = new Date(element[0]).toLocaleDateString("en-US", dateStyle);
     labels.push(date);
-    // console.log(labels)
   });
-  
+
   // To capitalize the first letter of the Cryptocurrency label
   const capitalizeFirstLetter = (cryptoLabel) => {
     return cryptoLabel[0].toUpperCase() + cryptoLabel.slice(1);
   };
 
+  // First data set for first cryptocurrency selected
   let dataset1 = {
     label: "",
     backgroundColor: "transparent",
@@ -78,9 +81,14 @@ function LineChart() {
           : "",
       data: chartData1 !== undefined ? chartData1.map((data) => data[1]) : "",
       backgroundColor:
-        cryptoCurrency[0] !== undefined ? "rgba(54, 162, 235, 0.2)" : "white",
-      borderColor: cryptoCurrency[0] !== undefined ? "gold" : "none",
-      borderWidth: cryptoCurrency[0] !== undefined ? 1 : "none",
+        cryptoCurrency[0] !== undefined
+          ? darkMode
+            ? "rgba(255,215,0,0.2)"
+            : "rgba(54, 162, 235, 0.2)"
+          : "white",
+      borderColor:
+        cryptoCurrency[0] !== undefined ? (darkMode ? "gold" : "blue") : "none",
+      borderWidth: cryptoCurrency[0] !== undefined ? 2 : "none",
       pointRadius: 0,
       pointHitRadius: 60,
     };
@@ -95,24 +103,32 @@ function LineChart() {
           : "",
       data: chartData2 !== undefined ? chartData2.map((data) => data[1]) : "",
       backgroundColor:
-        cryptoCurrency[1] !== undefined ? "rgba(255, 99, 132, 0.2)" : "white",
-      borderColor: cryptoCurrency[1] !== undefined ? "cyan" : "none",
-      borderWidth: cryptoCurrency[1] !== undefined ? 1 : "none",
+        cryptoCurrency[1] !== undefined
+          ? darkMode
+            ? "rgba(0,255,255,0.2)"
+            : "rgba(255, 99, 132, 0.2)"
+          : "white",
+      borderColor:
+        cryptoCurrency[1] !== undefined ? (darkMode ? "cyan" : "red") : "none",
+      borderWidth: cryptoCurrency[1] !== undefined ? 2 : "none",
       pointRadius: 0,
       pointHitRadius: 60,
     };
   }
 
-// Tool Tip
-const toolTipTitle = (toolTipItems)=>{
-  const titles = []
-  chartData1.forEach((element) => {
-    let date = new Date(element[0]).toLocaleDateString("en-US", {dateStyle:'long'});
-    titles.push(date);
-  });
-  return titles[toolTipItems[0].dataIndex]
-}
+  // Tool Tip Customization
+  const toolTipTitle = (toolTipItems) => {
+    const titles = [];
+    chartData1.forEach((element) => {
+      let date = new Date(element[0]).toLocaleDateString("en-US", {
+        dateStyle: "long",
+      });
+      titles.push(date);
+    });
+    return titles[toolTipItems[0].dataIndex];
+  };
 
+  // Chart Customization tools such as- backgroundColor, Chart alignment, Title, Labels on respective axes
   const options = {
     responsive: true,
     maintainAspectRatio: false,
@@ -121,7 +137,7 @@ const toolTipTitle = (toolTipItems)=>{
         position: "top",
         align: "end",
         labels: {
-          color: "black",
+          color: darkMode ? "white" : "black",
           usePointStyle: true,
           pointStyle: "circle",
           boxWidth: 9,
@@ -136,40 +152,40 @@ const toolTipTitle = (toolTipItems)=>{
       tooltip: {
         yAlign: "bottom",
         xAlign: "right",
-        callbacks:{
+        callbacks: {
           title: toolTipTitle,
-        }
+        },
       },
       title: {
         display: true,
         text: currencyVal.toUpperCase(),
         align: "start",
-        color: "black",
+        color: darkMode ? "white" : "black",
         font: {
           size: 15,
           weight: "700",
         },
       },
     },
+
+    //Implementation of Logarithmic Scale to fix exponential value of one datasets over other on comparison
     scales: {
       y: {
-        color:'rgb(148 163 184)',
         beginAtZero: true,
-        type: 'logarithmic',
+        type: "logarithmic",
         ticks: {
-          color:'rgb(148 163 184)',
+          color: darkMode ? "white" : "black",
           font: {
             size: 11,
           },
         },
       },
       x: {
-        color:'rgb(148 163 184)',
-        grid:{
+        grid: {
           display: false,
         },
         ticks: {
-          color:'rgb(148 163 184)',
+          color: darkMode ? "white" : "black",
           maxTicksLimit: 8,
           maxRotation: 0,
           minRotation: 0,

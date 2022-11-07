@@ -1,3 +1,4 @@
+// Reducer function for updating 'currency' state value
 const updateCurrency = (state = "usd", action) => {
   if (action.type === "updateCurrency") {
     return action.payload;
@@ -7,3 +8,4 @@ const updateCurrency = (state = "usd", action) => {
 };
 
 export default updateCurrency;
+

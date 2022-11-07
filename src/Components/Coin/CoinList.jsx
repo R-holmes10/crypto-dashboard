@@ -1,13 +1,21 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
-import './Coin.css';
 import Coin from './Coin';
 import { useSelector } from 'react-redux';
 
 function CoinList() {
+
+    // Setting up the initial states using react hook 'useState'
     const [coins, setCoins] = useState([]);
+
+    //To get differnet  Fiat Currency Value using React-redux;
     const currencyVal = useSelector((state) => state.currency);
+
+    //To get Only searched crypto-currency by Searchbar-componenet using React-redux
     const searchVal = useSelector((state) => state.search);
+
+    // Fetching crypto data using useEffect method from the CoinGeko API;
+    // once when the component is mounted
 
     useEffect(() => {
         axios
@@ -21,6 +29,7 @@ function CoinList() {
             .catch((error) => console.log(error));
     }, [currencyVal]);
 
+    // Filtering to check for the searched crypto
     const filteredCoins = coins.filter((coin) =>
         coin.name.toLowerCase().includes(searchVal.toLowerCase())
     );
@@ -39,9 +48,7 @@ function CoinList() {
                         <Coin
                             key={coin.id}
                             name={coin.name}
-                            // symbol={coin.symbol}
                             marketcap={coin.market_cap}
-                            // volume={coin.market_cap}
                             image={coin.image}
                             priceChange={coin.price_change_percentage_24h}
                             currencyVal={currencyVal}

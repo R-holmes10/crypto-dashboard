@@ -1,3 +1,4 @@
+// action creator function to dispatch an action for updating currency value
 export const updateCurrency = (currencyValue) => {
   return (dispatch) => {
     dispatch({
@@ -7,6 +8,7 @@ export const updateCurrency = (currencyValue) => {
   };
 };
 
+// action creator function to dispatch an action for filtering market cap list 
 export const filterSearch = (searchValue) => {
   return (dispatch) => {
     dispatch({
@@ -16,6 +18,7 @@ export const filterSearch = (searchValue) => {
   };
 };
 
+// action creator function to dispatch an action for updating time frame value
 export const updateDaysAgo = (daysAgoVal) => {
   return (dispatch) => {
     dispatch({
@@ -25,6 +28,7 @@ export const updateDaysAgo = (daysAgoVal) => {
   };
 };
 
+// action creator function to dispatch an action for updating cryptocurrency value
 export const updateCrypto = (list, item) => {
   return (dispatch) => {
     dispatch({
@@ -34,6 +38,7 @@ export const updateCrypto = (list, item) => {
   };
 };
 
+// action creator function to dispatch an action for removing cryptocurrency value
 export const removeCrypto = (list, item) => {
   return (dispatch) => {
     dispatch({
@@ -43,6 +48,7 @@ export const removeCrypto = (list, item) => {
   };
 };
 
+// action creator function to dispatch an action for updating first chart data value
 export const updateChartData1 = (data) => {
   return (dispatch) => {
     dispatch({
@@ -52,6 +58,7 @@ export const updateChartData1 = (data) => {
   };
 };
 
+// action creator function to dispatch an action for updating second chart data value
 export const updateChartData2 = (data) => {
   return (dispatch) => {
     dispatch({
@@ -61,6 +68,7 @@ export const updateChartData2 = (data) => {
   };
 };
 
+// action creator function to dispatch an action for switching to dark/light mode
 export const updateDarkMode = (modeVal) => {
   return (dispatch) => {
     dispatch({

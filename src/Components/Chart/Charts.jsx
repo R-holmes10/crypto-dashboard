@@ -5,10 +5,9 @@ import HorizontalBarChart from "./HorizontalBarChart";
 import { Routes, Route } from "react-router-dom";
 
 function Charts() {
-  // const { chartData1, chartData2 } = props;
-
   return (
     <div className="flex justify-center items-start lg:w-full">
+      {/* Chart Div Container for changing chart width and height to make it responsive */}
       <div
         className="relative w-[16rem] h-[20rem] 
                         xs:w-[21rem] xs:h-[22rem]
@@ -20,6 +19,7 @@ function Charts() {
                         xl:w-[53rem] xl:h-[22rem]
                         2xl:w-[58rem] 2xl:h-[22rem]"
       >
+        {/* Routing for selecting different Chart Types */}
         <Routes>
           <Route path="/" element={<VerticalBarChart />} />
           <Route path="/line" element={<LineChart />} />

@@ -3,7 +3,6 @@ import DaysAgo from "./DaysAgo";
 import CryptocurrencyDropdown from "./CryptocurrencyDropdown";
 import ChartTypeDropdown from "./ChartTypeDropdown";
 import Charts from "./Charts";
-// import { useState } from "react";
 import { useEffect } from "react";
 import { BrowserRouter } from "react-router-dom";
 import { useSelector,useDispatch } from "react-redux";
@@ -11,24 +10,21 @@ import { bindActionCreators } from 'redux'
 import {actionCreators} from '../../state/index'
 
 export default function MainChart() {
+
+  //Dispatch--> To trigger a state change
   const dispatch = useDispatch();
   const {updateChartData1,updateChartData2} = bindActionCreators(actionCreators,dispatch);
-
-  // const [cryptoCurrency, setCryptoCurrency] = useState(["bitcoin"]);
-  // const [chartData1, setChartData1] = useState([]);
-  // const [chartData2, setChartData2] = useState([]);
-  // const [cryptoList,setCryptoList] = useState([])
   const currency = useSelector((state) => state.currency);
   const daysAgo = useSelector((state) => state.daysAgo);
   const cryptoCurrency = useSelector((state) => state.cryptoCurrency);
 
   useEffect(() => {
+
+    //Request cryptocurrency data from API using fetch() method in JSON format
     const url = `https://api.coingecko.com/api/v3/coins/${cryptoCurrency[0]}/market_chart?vs_currency=${currency}&days=${daysAgo}&interval=daily`;
     fetch(url).then((data) => {
       data.json().then((resp) => {
-        // console.log(resp);
         updateChartData1(resp.prices);
-        // console.log(chartData)
       });
     });
     // eslint-disable-next-line react-hooks/exhaustive-deps
@@ -44,26 +40,22 @@ export default function MainChart() {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [daysAgo, currency,cryptoCurrency]);
 
+  //Fetching Data from an API in JSON format for Chart '1'
   const fetchData1 = (crypto) => {
-    // console.log(currency);
     const url = `https://api.coingecko.com/api/v3/coins/${crypto}/market_chart?vs_currency=${currency}&days=${daysAgo}&interval=daily`;
     fetch(url).then((data) => {
       data.json().then((resp) => {
-        // console.log(resp);
         updateChartData1(resp.prices);
-        // console.log(chartData)
       });
     });
   };
 
+   //Fetching Data from an API in JSON format for Chart '2'
   const fetchData2 = (crypto) => {
-    // console.log(cryptoCurrency)
     const url = `https://api.coingecko.com/api/v3/coins/${crypto}/market_chart?vs_currency=${currency}&days=${daysAgo}&interval=daily`;
     fetch(url).then((data) => {
       data.json().then((resp) => {
-        // console.log(resp);
         updateChartData2(resp.prices);
-        // console.log(chartData2)
       });
     });
   };
@@ -83,11 +75,9 @@ export default function MainChart() {
             <div className="flex flex-col xs2:flex-row w-full px-2 xs2:px-0 xs2:justify-center xl:justify-end xl:pr-2">
               {/* Cryptocurrency Dropdown */}
               <div className="self-end xs2:mr-2">
-                <CryptocurrencyDropdown
-                  // handleCryptoCurrency={handleCryptoCurrency}
-                  // removeCryptocurrency={removeCryptocurrency}
-                />
+                <CryptocurrencyDropdown />
               </div>
+              {/* ChartType Dropdown */}
               <div className="z-10 self-end my-1 xs2:my-0">
                 <ChartTypeDropdown />
               </div>
@@ -95,10 +85,7 @@ export default function MainChart() {
           </div>
           {/*CHARTS COMPONENTS */}
           <div className="flex justify-center">
-            <Charts
-              // chartData1={chartData1}
-              // chartData2={chartData2}
-            />
+            <Charts />
           </div>
         </div>
       </div>

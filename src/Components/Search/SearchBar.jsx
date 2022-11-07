@@ -11,9 +11,11 @@ const {filterSearch} = bindActionCreators(actionCreators,dispatch)
     
   return (
     <div className='flex items-center justify-start px-6 space-x-3 bg-white dark:bg-gray-700 drop-shadow rounded-md  border border-neutral-200'>
-              <img src={searchIcon} alt="sdfd" className="w-4 xs:w-5 opacity-50 dark:invert" />
+              
+      {/* Search Bar icon  */}
+          <img src={searchIcon} alt="sdfd" className="w-4 xs:w-5 opacity-50 dark:invert" />
 
-      {/* Search Bar */}
+      {/* Search Bar to filter out cryptocurrency */}
           <form className='w-full'>
             <input
               type="text"
@@ -22,7 +24,6 @@ const {filterSearch} = bindActionCreators(actionCreators,dispatch)
               className='dark:bg-gray-700 dark:text-gray-50 w-full h-10 outline-none font-medium text-sm xs2:text-lg rounded-md'
             />
           </form>
-      {/* Search Bar */}
-    </div>
+     </div>
   )
 }

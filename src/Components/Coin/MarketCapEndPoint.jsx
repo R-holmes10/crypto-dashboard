@@ -1,5 +1,8 @@
+//Parent file of Coin-Market-Cap component 
 import React from 'react';
 import CoinList from './CoinList';
+
+//Passing currency and search as propes;
 
 function MarketCap_EndPoint({currency,search}) {
     return (
