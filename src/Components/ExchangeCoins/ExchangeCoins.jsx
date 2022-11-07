@@ -14,7 +14,7 @@ function ExchangeCoins() {
   const [options, setOptions] = useState([]);
   const [output, setOutput] = useState(0);
   //validation of input field while user enter for exchange
-  const regMatch = /[a-zA-Z]+/; //regrex for only string
+  const regMatch = /[a-zA-Z]+/; //regex for only string
   const [isError, setError] = useState(false); //state variable for flashing the error msg.
   const [isString, setisString] = useState(false);
   const [isEmpty, setisEmpty] = useState(false);
