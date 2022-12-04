@@ -18,7 +18,7 @@ const {filterSearch} = bindActionCreators(actionCreators,dispatch)
       {/* Search Bar to filter out cryptocurrency */}
           <form className='w-full'>
             <input
-              type="text"
+              type=" text "
               onChange={filterSearch}
               placeholder="Search by coin"
               className='dark:bg-gray-700 dark:text-gray-50 w-full h-10 outline-none font-medium text-sm xs2:text-lg rounded-md'
